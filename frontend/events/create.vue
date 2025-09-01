@@ -1,6 +1,6 @@
 <template>
     <div class="container mx-auto p-6 bg-gradient-to-br from-white via-purple-50 to-indigo-50 min-h-screen">
-      <h1 class="text-3xl font-bold text-indigo-800 mb-6">สร้างกิจกรรมใหม่</h1>
+      <h1 class="text-3xl font-bold text-green-800 mb-6">สร้างกิจกรรมใหม่</h1>
       <EventForm :initial-date="selectedDate" @submit="handleCreateEvent" @cancel="navigateToDashboard" />
     </div>
   </template>

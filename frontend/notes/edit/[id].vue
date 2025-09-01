@@ -1,40 +1,40 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 p-6 flex items-center justify-center">
+  <div class="min-h-screen bg-gradient-to-br from-green-50 via-cyan-50 to-blue-100 p-6 flex items-center justify-center">
     <div class="w-full max-w-md bg-white/95 backdrop-blur-md p-8 rounded-2xl shadow-2xl transform transition-all duration-300 hover:shadow-3xl">
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-purple-800 mb-6 text-center drop-shadow-md">แก้ไขบันทึก</h1>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-green-700 mb-6 text-center drop-shadow-md">แก้ไขบันทึก</h1>
       <form v-if="noteForm.id" @submit.prevent="updateNote" class="space-y-6">
         <div class="mb-4">
-          <label for="title" class="block text-purple-700 text-sm font-semibold mb-2">หัวข้อบันทึก</label>
+          <label for="title" class="block text-blue-700 text-sm font-semibold mb-2">หัวข้อบันทึก</label>
           <input
             type="text"
             id="title"
             v-model="noteForm.title"
-            class="mt-1 block w-full border border-purple-200 rounded-xl shadow-inner p-3 focus:outline-none focus:ring-2 focus:ring-purple-400 bg-white/80 text-gray-800 placeholder-purple-300 transition duration-300 sm:text-sm"
+            class="mt-1 block w-full border border-cyan-200 rounded-xl shadow-inner p-3 focus:outline-none focus:ring-2 focus:ring-cyan-400 bg-white/80 text-gray-800 placeholder-cyan-300 transition duration-300 sm:text-sm"
             required
           />
         </div>
         <div class="mb-4">
-          <label for="content" class="block text-purple-700 text-sm font-semibold mb-2">เนื้อหา</label>
+          <label for="content" class="block text-blue-700 text-sm font-semibold mb-2">เนื้อหา</label>
           <textarea
             id="content"
             v-model="noteForm.content"
             rows="5"
-            class="mt-1 block w-full border border-purple-200 rounded-xl shadow-inner p-3 focus:outline-none focus:ring-2 focus:ring-purple-400 bg-white/80 text-gray-800 placeholder-purple-300 transition duration-300 sm:text-sm resize-none"
+            class="mt-1 block w-full border border-cyan-200 rounded-xl shadow-inner p-3 focus:outline-none focus:ring-2 focus:ring-cyan-400 bg-white/80 text-gray-800 placeholder-cyan-300 transition duration-300 sm:text-sm resize-none"
           ></textarea>
         </div>
         <div class="mb-6">
-          <label for="note_date" class="block text-purple-700 text-sm font-semibold mb-2">วันที่เกี่ยวข้อง (สำหรับปฏิทิน)</label>
+          <label for="note_date" class="block text-blue-700 text-sm font-semibold mb-2">วันที่เกี่ยวข้อง (สำหรับปฏิทิน)</label>
           <input
             type="date"
             id="note_date"
             v-model="noteForm.note_date"
-            class="mt-1 block w-full border border-purple-200 rounded-xl shadow-inner p-3 focus:outline-none focus:ring-2 focus:ring-purple-400 bg-white/80 text-gray-800 placeholder-purple-300 transition duration-300 sm:text-sm"
+            class="mt-1 block w-full border border-cyan-200 rounded-xl shadow-inner p-3 focus:outline-none focus:ring-2 focus:ring-green-400 bg-white/80 text-gray-800 placeholder-cyan-300 transition duration-300 sm:text-sm"
           />
         </div>
         <div class="flex items-center justify-between space-x-4">
           <button
             type="submit"
-            class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition duration-300 transform hover:-translate-y-1 shadow-md hover:shadow-lg"
+            class="w-full bg-gradient-to-r from-green-500 via-cyan-500 to-blue-500 hover:from-green-600 hover:via-cyan-600 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500 transition duration-300 transform hover:-translate-y-1 shadow-md hover:shadow-lg"
           >
             บันทึกการแก้ไข
           </button>
@@ -47,7 +47,7 @@
           </button>
         </div>
       </form>
-      <p v-else class="text-purple-600 text-center italic animate-pulse">กำลังโหลดบันทึก...</p>
+      <p v-else class="text-cyan-600 text-center italic animate-pulse">กำลังโหลดบันทึก...</p>
     </div>
   </div>
 </template>

@@ -1,25 +1,61 @@
 <template>
-  <div class="container mx-auto p-6 bg-gradient-to-br from-white via-purple-50 to-indigo-50 min-h-screen">
-    <h1 class="text-4xl font-extrabold text-indigo-800 mb-6">{{ isEvent ? (noteId ? 'Edit Event' : 'Add Event') : (noteId ? 'Edit Note' : 'Add Note') }}</h1>
+  <div class="container mx-auto p-6 bg-gradient-to-br from-white via-green-50 to-blue-50 min-h-screen">
+    <h1 class="text-4xl font-extrabold text-green-700 mb-6">
+      {{ isEvent ? (noteId ? 'Edit Event' : 'Add Event') : (noteId ? 'Edit Note' : 'Add Note') }}
+    </h1>
     <form @submit.prevent="saveItem" class="space-y-6">
       <div>
-        <label class="block text-lg text-purple-800 mb-2">Title</label>
-        <input v-model="item.title" type="text" class="border border-indigo-200 p-3 w-full rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-300" required>
+        <label class="block text-lg text-blue-700 mb-2">Title</label>
+        <input
+          v-model="item.title"
+          type="text"
+          class="border border-cyan-200 p-3 w-full rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-400"
+          required
+        >
       </div>
       <div>
-        <label class="block text-lg text-purple-800 mb-2">Content</label>
-        <textarea v-model="item.content" class="border border-indigo-200 p-3 w-full rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-300" rows="4" required></textarea>
+        <label class="block text-lg text-blue-700 mb-2">Content</label>
+        <textarea
+          v-model="item.content"
+          class="border border-cyan-200 p-3 w-full rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-400"
+          rows="4"
+          required
+        ></textarea>
       </div>
       <div v-if="isEvent">
-        <label class="block text-lg text-purple-800 mb-2">Start Date</label>
-        <input v-model="item.start_date" type="datetime-local" class="border border-indigo-200 p-3 w-full rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-300">
-        <label class="block text-lg text-purple-800 mb-2 mt-2">End Date</label>
-        <input v-model="item.end_date" type="datetime-local" class="border border-indigo-200 p-3 w-full rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-300">
-        <label class="block text-lg text-purple-800 mb-2 mt-2">All Day</label>
-        <input v-model="item.all_day" type="checkbox" class="border border-indigo-200 p-3 rounded">
+        <label class="block text-lg text-blue-700 mb-2">Start Date</label>
+        <input
+          v-model="item.start_date"
+          type="datetime-local"
+          class="border border-cyan-200 p-3 w-full rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400"
+        >
+        <label class="block text-lg text-blue-700 mb-2 mt-2">End Date</label>
+        <input
+          v-model="item.end_date"
+          type="datetime-local"
+          class="border border-cyan-200 p-3 w-full rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400"
+        >
+        <label class="block text-lg text-blue-700 mb-2 mt-2 items-center space-x-2">
+          <span>All Day</span>
+          <input
+            v-model="item.all_day"
+            type="checkbox"
+            class="h-5 w-5 text-green-600 focus:ring-cyan-400 border-cyan-300 rounded"
+          >
+        </label>
       </div>
-      <button type="submit" class="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-6 py-3 rounded-full hover:from-indigo-600 hover:to-purple-600 transition duration-300 shadow-md">Save</button>
-      <button @click="navigateTo('/dashboard')" class="ml-4 bg-gray-500 text-white px-6 py-3 rounded-full hover:bg-gray-600 transition duration-300">Cancel</button>
+      <button
+        type="submit"
+        class="bg-gradient-to-r from-green-500 via-cyan-500 to-blue-500 text-white px-6 py-3 rounded-full hover:from-green-600 hover:via-cyan-600 hover:to-blue-600 transition duration-300 shadow-md"
+      >
+        Save
+      </button>
+      <button
+        @click="navigateTo('/dashboard')"
+        class="ml-4 bg-gray-400 text-white px-6 py-3 rounded-full hover:bg-gray-500 transition duration-300"
+      >
+        Cancel
+      </button>
     </form>
   </div>
 </template>

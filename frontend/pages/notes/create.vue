@@ -1,39 +1,39 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 p-6 flex items-center justify-center">
+  <div class="min-h-screen bg-gradient-to-br from-green-50 to-cyan-100 p-6 flex items-center justify-center">
     <div class="w-full max-w-md bg-white/95 backdrop-blur-md p-8 rounded-2xl shadow-2xl transform transition-all duration-300 hover:shadow-3xl">
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-purple-800 mb-6 text-center drop-shadow-md">สร้างบันทึกใหม่</h1>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-green-800 mb-6 text-center drop-shadow-md">สร้างบันทึกใหม่</h1>
       <form @submit.prevent="createNote" class="space-y-6">
         <div class="mb-4">
-          <label for="title" class="block text-purple-700 text-sm font-semibold mb-2">ชื่อบันทึก:</label>
+          <label for="title" class="block text-green-700 text-sm font-semibold mb-2">ชื่อบันทึก:</label>
           <input
             type="text"
             id="title"
             v-model="note.title"
-            class="w-full px-4 py-2 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400 bg-white/80 text-gray-800 placeholder-purple-300 transition duration-300 shadow-inner"
+            class="w-full px-4 py-2 border border-green-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400 bg-white/80 text-gray-800 placeholder-green-300 transition duration-300 shadow-inner"
             required
           />
         </div>
         <div class="mb-4">
-          <label for="content" class="block text-purple-700 text-sm font-semibold mb-2">เนื้อหา:</label>
+          <label for="content" class="block text-green-700 text-sm font-semibold mb-2">เนื้อหา:</label>
           <textarea
             id="content"
             v-model="note.content"
-            class="w-full px-4 py-2 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400 bg-white/80 text-gray-800 placeholder-purple-300 transition duration-300 shadow-inner h-32 resize-none"
+            class="w-full px-4 py-2 border border-green-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400 bg-white/80 text-gray-800 placeholder-green-300 transition duration-300 shadow-inner h-32 resize-none"
           ></textarea>
         </div>
         <div class="mb-6">
-          <label for="note_date" class="block text-purple-700 text-sm font-semibold mb-2">วันที่เกี่ยวข้อง (สำหรับปฏิทิน - ไม่บังคับ):</label>
+          <label for="note_date" class="block text-green-700 text-sm font-semibold mb-2">วันที่เกี่ยวข้อง (สำหรับปฏิทิน - ไม่บังคับ):</label>
           <input
             type="date"
             id="note_date"
             v-model="note.note_date"
-            class="w-full px-4 py-2 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400 bg-white/80 text-gray-800 placeholder-purple-300 transition duration-300 shadow-inner"
+            class="w-full px-4 py-2 border border-green-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400 bg-white/80 text-gray-800 placeholder-green-300 transition duration-300 shadow-inner"
           />
         </div>
         <div class="flex items-center justify-between space-x-4">
           <button
             type="submit"
-            class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition duration-300 transform hover:-translate-y-1 shadow-md hover:shadow-lg"
+            class="w-full bg-gradient-to-r from-green-500 to-cyan-500 hover:from-green-600 hover:to-cyan-600 text-white font-bold py-3 px-6 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-300 transform hover:-translate-y-1 shadow-md hover:shadow-lg"
           >
             บันทึก
           </button>

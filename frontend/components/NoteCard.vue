@@ -1,16 +1,16 @@
 <template>
-  <div class="bg-gradient-to-br from-purple-100 via-indigo-100 to-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+  <div class="bg-gradient-to-br from-green-100 via-cyan-100 to-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
     <div v-if="!internalIsEditing">
-      <h3 class="font-bold text-xl text-indigo-800 line-clamp-2">{{ note.title }}</h3>
-      <p class="text-md text-purple-600 mt-2 line-clamp-3">{{ note.content }}</p>
-      <p class="text-lg text-right text-purple-400 mt-3 font-medium">
+      <h3 class="font-bold text-xl text-green-700 line-clamp-2">{{ note.title }}</h3>
+      <p class="text-md text-blue-600 mt-2 line-clamp-3">{{ note.content }}</p>
+      <p class="text-lg text-right text-cyan-500 mt-3 font-medium">
         สร้างเมื่อ: {{ formatDate(note.created_at) }}
         <span v-if="note.note_date"> | วันที่เกี่ยวข้อง: {{ formatDate(note.note_date) }}</span>
       </p>
       <div class="flex justify-end gap-4 mt-4">
         <button
           @click="toggleEditMode"
-          class="bg-gradient-to-r from-indigo-400 to-purple-400 text-white px-4 py-2 rounded-full hover:from-indigo-500 hover:to-purple-500 transition duration-300 font-medium shadow-sm hover:shadow-md"
+          class="bg-gradient-to-r from-green-400 to-cyan-400 text-white px-4 py-2 rounded-full hover:from-green-500 hover:to-cyan-500 transition duration-300 font-medium shadow-sm hover:shadow-md"
         >
           แก้ไข
         </button>
@@ -27,34 +27,34 @@
       <input
         v-model="editTitle"
         placeholder="หัวข้อ"
-        class="mb-4 p-3 border border-purple-200 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-purple-400 bg-white/80 text-gray-800 placeholder-purple-300 transition duration-300 shadow-inner"
+        class="mb-4 p-3 border border-cyan-200 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-cyan-400 bg-white/80 text-gray-800 placeholder-cyan-300 transition duration-300 shadow-inner"
         required
       />
       <textarea
         v-model="editContent"
         placeholder="เนื้อหา"
         rows="5"
-        class="mb-4 p-3 border border-purple-200 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-purple-400 bg-white/80 text-gray-800 placeholder-purple-300 transition duration-300 shadow-inner resize-y"
+        class="mb-4 p-3 border border-cyan-200 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-cyan-400 bg-white/80 text-gray-800 placeholder-cyan-300 transition duration-300 shadow-inner resize-y"
       ></textarea>
       <div>
-        <label for="edit_note_date" class="block text-sm font-medium text-purple-700">วันที่เกี่ยวข้อง (สำหรับปฏิทิน)</label>
+        <label for="edit_note_date" class="block text-sm font-medium text-blue-700">วันที่เกี่ยวข้อง (สำหรับปฏิทิน)</label>
         <input
           type="date"
           id="edit_note_date"
           v-model="editNoteDate"
-          class="mt-1 block w-full border border-purple-200 rounded-xl shadow-inner p-3 focus:outline-none focus:ring-2 focus:ring-purple-400 bg-white/80 text-gray-800 placeholder-purple-300 transition duration-300"
+          class="mt-1 block w-full border border-cyan-200 rounded-xl shadow-inner p-3 focus:outline-none focus:ring-2 focus:ring-green-400 bg-white/80 text-gray-800 placeholder-cyan-300 transition duration-300"
         />
       </div>
       <div class="flex justify-end gap-4 mt-4">
         <button
           @click="saveEdit"
-          class="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-5 py-2 rounded-full hover:from-indigo-600 hover:to-purple-600 transition duration-300 font-semibold shadow-md hover:shadow-lg"
+          class="bg-gradient-to-r from-green-500 via-cyan-500 to-blue-500 text-white px-5 py-2 rounded-full hover:from-green-600 hover:via-cyan-600 hover:to-blue-600 transition duration-300 font-semibold shadow-md hover:shadow-lg"
         >
           บันทึก
         </button>
         <button
           @click="cancelEdit"
-          class="bg-gray-200 text-indigo-700 px-5 py-2 rounded-full hover:bg-gray-300 transition duration-300 font-semibold shadow-md hover:shadow-lg"
+          class="bg-gray-200 text-blue-700 px-5 py-2 rounded-full hover:bg-gray-300 transition duration-300 font-semibold shadow-md hover:shadow-lg"
         >
           ยกเลิก
         </button>

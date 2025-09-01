@@ -1,62 +1,62 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 p-6 flex items-center justify-center">
+  <div class="min-h-screen bg-gradient-to-br from-green-50 via-cyan-50 to-blue-100 p-6 flex items-center justify-center">
     <div class="w-full max-w-md bg-white/95 backdrop-blur-md p-8 rounded-2xl shadow-2xl transform transition-all duration-300 hover:shadow-3xl">
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-purple-800 mb-6 text-center drop-shadow-md">แก้ไขกิจกรรม</h1>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-green-700 mb-6 text-center drop-shadow-md">แก้ไขกิจกรรม</h1>
       <form v-if="event.id" @submit.prevent="updateEvent" class="space-y-6">
         <div class="mb-4">
-          <label for="title" class="block text-purple-700 text-sm font-semibold mb-2">ชื่องาน:</label>
+          <label for="title" class="block text-blue-700 text-sm font-semibold mb-2">ชื่องาน:</label>
           <input
             type="text"
             id="title"
             v-model="event.title"
-            class="w-full px-4 py-2 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400 bg-white/80 text-gray-800 placeholder-purple-300 transition duration-300 shadow-inner"
+            class="w-full px-4 py-2 border border-cyan-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-400 bg-white/80 text-gray-800 placeholder-cyan-300 transition duration-300 shadow-inner"
             required
           />
         </div>
         <div class="mb-4">
-          <label for="description" class="block text-purple-700 text-sm font-semibold mb-2">รายละเอียด:</label>
+          <label for="description" class="block text-blue-700 text-sm font-semibold mb-2">รายละเอียด:</label>
           <textarea
             id="description"
             v-model="event.description"
-            class="w-full px-4 py-2 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400 bg-white/80 text-gray-800 placeholder-purple-300 transition duration-300 shadow-inner h-32 resize-none"
+            class="w-full px-4 py-2 border border-cyan-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-400 bg-white/80 text-gray-800 placeholder-cyan-300 transition duration-300 shadow-inner h-32 resize-none"
           ></textarea>
         </div>
         <div class="mb-4">
-          <label for="start_date" class="block text-purple-700 text-sm font-semibold mb-2">วันที่เริ่มต้น:</label>
+          <label for="start_date" class="block text-blue-700 text-sm font-semibold mb-2">วันที่เริ่มต้น:</label>
           <input
             type="date"
             id="start_date"
             v-model="event.start_date"
-            class="w-full px-4 py-2 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400 bg-white/80 text-gray-800 placeholder-purple-300 transition duration-300 shadow-inner"
+            class="w-full px-4 py-2 border border-cyan-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400 bg-white/80 text-gray-800 placeholder-cyan-300 transition duration-300 shadow-inner"
             required
           />
         </div>
         <div class="mb-6">
-          <label for="end_date" class="block text-purple-700 text-sm font-semibold mb-2">วันที่สิ้นสุด (ไม่บังคับ):</label>
+          <label for="end_date" class="block text-blue-700 text-sm font-semibold mb-2">วันที่สิ้นสุด (ไม่บังคับ):</label>
           <input
             type="date"
             id="end_date"
             v-model="event.end_date"
-            class="w-full px-4 py-2 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400 bg-white/80 text-gray-800 placeholder-purple-300 transition duration-300 shadow-inner"
+            class="w-full px-4 py-2 border border-cyan-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400 bg-white/80 text-gray-800 placeholder-cyan-300 transition duration-300 shadow-inner"
           />
         </div>
         <div class="flex items-center justify-between space-x-4">
           <button
             type="submit"
-            class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition duration-300 transform hover:-translate-y-1 shadow-md hover:shadow-lg"
+            class="w-full bg-gradient-to-r from-green-500 via-cyan-500 to-blue-500 hover:from-green-600 hover:via-cyan-600 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500 transition duration-300 transform hover:-translate-y-1 shadow-md hover:shadow-lg"
           >
             บันทึกการแก้ไข
           </button>
           <button
             type="button"
             @click="navigateTo('/dashboard')"
-            class="w-full bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-3 px-6 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-400 transition duration-300 transform hover:-translate-y-1 shadow-md"
+            class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 px-6 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-400 transition duration-300 transform hover:-translate-y-1 shadow-md"
           >
             ยกเลิก
           </button>
         </div>
       </form>
-      <p v-else class="text-purple-600 text-center italic animate-pulse">กำลังโหลดกิจกรรม...</p>
+      <p v-else class="text-cyan-600 text-center italic animate-pulse">กำลังโหลดกิจกรรม...</p>
     </div>
   </div>
 </template>

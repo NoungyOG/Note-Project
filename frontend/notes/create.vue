@@ -1,31 +1,31 @@
 <template>
   <div class="space-y-6">
     <div>
-      <label for="title" class="block text-sm font-medium text-purple-700">หัวข้อบันทึก</label>
+      <label for="title" class="block text-sm font-medium text-green-700">หัวข้อบันทึก</label>
       <input
         type="text"
         id="title"
         v-model="noteForm.title"
         required
-        class="mt-1 block w-full border border-purple-200 rounded-xl shadow-inner p-3 focus:outline-none focus:ring-2 focus:ring-purple-400 bg-white/80 text-gray-800 placeholder-purple-300 transition duration-300 sm:text-sm"
+        class="mt-1 block w-full border border-cyan-200 rounded-xl shadow-inner p-3 focus:outline-none focus:ring-2 focus:ring-green-400 bg-white/80 text-gray-800 placeholder-blue-300 transition duration-300 sm:text-sm"
       />
     </div>
     <div>
-      <label for="content" class="block text-sm font-medium text-purple-700">เนื้อหา</label>
+      <label for="content" class="block text-sm font-medium text-green-700">เนื้อหา</label>
       <textarea
         id="content"
         v-model="noteForm.content"
         rows="5"
-        class="mt-1 block w-full border border-purple-200 rounded-xl shadow-inner p-3 focus:outline-none focus:ring-2 focus:ring-purple-400 bg-white/80 text-gray-800 placeholder-purple-300 transition duration-300 sm:text-sm resize-none"
+        class="mt-1 block w-full border border-green-200 rounded-xl shadow-inner p-3 focus:outline-none focus:ring-2 focus:ring-cyan-400 bg-white/80 text-gray-800 placeholder-blue-300 transition duration-300 sm:text-sm resize-none"
       ></textarea>
     </div>
     <div>
-      <label for="note_date" class="block text-sm font-medium text-purple-700">วันที่เกี่ยวข้อง (สำหรับปฏิทิน)</label>
+      <label for="note_date" class="block text-sm font-medium text-green-700">วันที่เกี่ยวข้อง (สำหรับปฏิทิน)</label>
       <input
         type="date"
         id="note_date"
         v-model="noteForm.note_date"
-        class="mt-1 block w-full border border-purple-200 rounded-xl shadow-inner p-3 focus:outline-none focus:ring-2 focus:ring-purple-400 bg-white/80 text-gray-800 placeholder-purple-300 transition duration-300 sm:text-sm"
+        class="mt-1 block w-full border border-cyan-200 rounded-xl shadow-inner p-3 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white/80 text-gray-800 placeholder-cyan-300 transition duration-300 sm:text-sm"
       />
     </div>
   </div>

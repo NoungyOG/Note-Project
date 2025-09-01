@@ -1,66 +1,66 @@
 <template>
-    <form @submit.prevent="handleSubmit" class="bg-white p-8 rounded-lg shadow-xl space-y-6">
+  <form @submit.prevent="handleSubmit" class="bg-white p-8 rounded-lg shadow-xl space-y-6">
+    <div>
+      <label for="title" class="block text-sm font-medium text-blue-700">ชื่อกิจกรรม</label>
+      <input type="text" id="title" v-model="eventForm.title" required
+             class="mt-1 block w-full border border-cyan-200 rounded-md shadow-sm p-3 focus:ring-cyan-400 focus:border-cyan-400 sm:text-sm">
+    </div>
+
+    <div>
+      <label for="description" class="block text-sm font-medium text-blue-700">รายละเอียด</label>
+      <textarea id="description" v-model="eventForm.description" rows="3"
+                class="mt-1 block w-full border border-cyan-200 rounded-md shadow-sm p-3 focus:ring-cyan-400 focus:border-cyan-400 sm:text-sm"></textarea>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div>
-        <label for="title" class="block text-sm font-medium text-gray-700">ชื่อกิจกรรม</label>
-        <input type="text" id="title" v-model="eventForm.title" required
-               class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+        <label for="start_date" class="block text-sm font-medium text-blue-700">วันที่เริ่มต้น</label>
+        <input type="datetime-local" id="start_date" v-model="startDateTimeLocal" required
+               class="mt-1 block w-full border border-cyan-200 rounded-md shadow-sm p-3 focus:ring-green-400 focus:border-green-400 sm:text-sm">
       </div>
-  
       <div>
-        <label for="description" class="block text-sm font-medium text-gray-700">รายละเอียด</label>
-        <textarea id="description" v-model="eventForm.description" rows="3"
-                  class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+        <label for="end_date" class="block text-sm font-medium text-blue-700">วันที่สิ้นสุด (ไม่บังคับ)</label>
+        <input type="datetime-local" id="end_date" v-model="endDateTimeLocal"
+               class="mt-1 block w-full border border-cyan-200 rounded-md shadow-sm p-3 focus:ring-green-400 focus:border-green-400 sm:text-sm">
       </div>
-  
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label for="start_date" class="block text-sm font-medium text-gray-700">วันที่เริ่มต้น</label>
-          <input type="datetime-local" id="start_date" v-model="startDateTimeLocal" required
-                 class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-        </div>
-        <div>
-          <label for="end_date" class="block text-sm font-medium text-gray-700">วันที่สิ้นสุด (ไม่บังคับ)</label>
-          <input type="datetime-local" id="end_date" v-model="endDateTimeLocal"
-                 class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-        </div>
-      </div>
-  
-      <div>
-        <label for="category" class="block text-sm font-medium text-gray-700">หมวดหมู่</label>
-        <input type="text" id="category" v-model="eventForm.category"
-               class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-      </div>
-  
-      <div>
-        <label for="location" class="block text-sm font-medium text-gray-700">สถานที่</label>
-        <input type="text" id="location" v-model="eventForm.location"
-               class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-      </div>
-  
-      <div class="flex items-center">
-        <input id="all_day" type="checkbox" v-model="eventForm.all_day"
-               class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-        <label for="all_day" class="ml-2 block text-sm text-gray-900">กิจกรรมทั้งวัน</label>
-      </div>
-  
-      <div class="flex justify-between items-center mt-6">
-        <div class="space-x-4">
-          <button type="submit"
-                  class="bg-indigo-600 text-white px-6 py-3 rounded-md hover:bg-indigo-700 transition duration-300 shadow-md">
-            {{ initialEvent ? 'บันทึกการแก้ไข' : 'สร้างกิจกรรม' }}
-          </button>
-          <button type="button" @click="$emit('cancel')"
-                  class="bg-gray-300 text-gray-800 px-6 py-3 rounded-md hover:bg-gray-400 transition duration-300 shadow-md">
-            ยกเลิก
-          </button>
-        </div>
-        <button v-if="initialEvent" type="button" @click="$emit('delete')"
-                class="bg-red-500 text-white px-6 py-3 rounded-md hover:bg-red-600 transition duration-300 shadow-md">
-          ลบกิจกรรม
+    </div>
+
+    <div>
+      <label for="category" class="block text-sm font-medium text-blue-700">หมวดหมู่</label>
+      <input type="text" id="category" v-model="eventForm.category"
+             class="mt-1 block w-full border border-cyan-200 rounded-md shadow-sm p-3 focus:ring-cyan-400 focus:border-cyan-400 sm:text-sm">
+    </div>
+
+    <div>
+      <label for="location" class="block text-sm font-medium text-blue-700">สถานที่</label>
+      <input type="text" id="location" v-model="eventForm.location"
+             class="mt-1 block w-full border border-cyan-200 rounded-md shadow-sm p-3 focus:ring-cyan-400 focus:border-cyan-400 sm:text-sm">
+    </div>
+
+    <div class="flex items-center">
+      <input id="all_day" type="checkbox" v-model="eventForm.all_day"
+             class="h-4 w-4 text-green-600 focus:ring-cyan-400 border-cyan-300 rounded">
+      <label for="all_day" class="ml-2 block text-sm text-gray-900">กิจกรรมทั้งวัน</label>
+    </div>
+
+    <div class="flex justify-between items-center mt-6">
+      <div class="space-x-4">
+        <button type="submit"
+                class="bg-gradient-to-r from-green-500 via-cyan-500 to-blue-500 text-white px-6 py-3 rounded-md hover:from-green-600 hover:via-cyan-600 hover:to-blue-600 transition duration-300 shadow-md">
+          {{ initialEvent ? 'บันทึกการแก้ไข' : 'สร้างกิจกรรม' }}
+        </button>
+        <button type="button" @click="$emit('cancel')"
+                class="bg-gray-300 text-gray-800 px-6 py-3 rounded-md hover:bg-gray-400 transition duration-300 shadow-md">
+          ยกเลิก
         </button>
       </div>
-    </form>
-  </template>
+      <button v-if="initialEvent" type="button" @click="$emit('delete')"
+              class="bg-red-500 text-white px-6 py-3 rounded-md hover:bg-red-600 transition duration-300 shadow-md">
+        ลบกิจกรรม
+      </button>
+    </div>
+  </form>
+</template>
   
   <script setup>
   import { ref, watch, computed } from 'vue';

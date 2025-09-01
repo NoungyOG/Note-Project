@@ -1,18 +1,21 @@
 <template>
-  <!-- โค้ด template เดิม -->
-  <div class="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 p-6">
+  <div class="min-h-screen bg-gradient-to-br from-green-50 to-cyan-100 p-6">
+    <!-- Header -->
     <header class="bg-white/90 backdrop-blur-md shadow-lg p-6 rounded-2xl flex justify-between items-center mb-8 transform hover:scale-102 transition duration-300">
-      <h1 class="text-3xl font-extrabold text-purple-800 drop-shadow-md">แดชบอร์ด</h1>
+      <h1 class="text-3xl font-extrabold text-green-800 drop-shadow-md">แดชบอร์ด</h1>
       <nav>
-        <button @click="logout" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-xl shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+        <button 
+          @click="logout" 
+          class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-xl shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
           ออกจากระบบ
         </button>
       </nav>
     </header>
 
     <main class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Calendar Section -->
       <section class="sm:col-span-2 lg:col-span-2 bg-white/95 backdrop-blur-md p-6 rounded-2xl shadow-xl transform hover:scale-101 transition duration-300">
-        <h2 class="text-2xl font-bold text-purple-800 mb-6 flex justify-between items-center border-b-2 border-purple-200 pb-2">
+        <h2 class="text-2xl font-bold text-green-800 mb-6 flex justify-between items-center border-b-2 border-green-200 pb-2">
           ปฏิทินและกิจกรรม
         </h2>
         <div class="calendar-container overflow-x-auto">
@@ -26,10 +29,10 @@
             :first-day-of-week="2"
           >
             <template #header-title="{ shortMonthLabel, yearLabel }">
-              <span class="text-xl sm:text-2xl font-bold text-purple-800">{{ shortMonthLabel }} {{ yearLabel }}</span>
+              <span class="text-xl sm:text-2xl font-bold text-green-800">{{ shortMonthLabel }} {{ yearLabel }}</span>
             </template>
             <template #weekdays="{ weekdays }">
-              <div class="vc-weekdays text-sm sm:text-base uppercase font-semibold text-purple-700">
+              <div class="vc-weekdays text-sm sm:text-base uppercase font-semibold text-green-700">
                 <div v-for="weekday in weekdays" :key="weekday.id" class="vc-weekday">
                   {{ getThaiDayAbbr(weekday.id) }}
                 </div>
@@ -37,7 +40,9 @@
             </template>
             <template #day-content="{ day, attributes }">
               <div class="day-content flex flex-col items-center relative">
-                <span class="day-label text-sm font-medium text-purple-700 bg-white/80 px-2 py-1 rounded-full shadow-inner" :class="{ 'text-lg border-2 border-purple-300': day.isCurrent }">
+                <span 
+                  class="day-label text-sm font-medium text-green-700 bg-white/80 px-2 py-1 rounded-full shadow-inner" 
+                  :class="{ 'text-lg border-2 border-green-300': day.isCurrent }">
                   {{ day.day.toString().padStart(2, '0') }}
                 </span>
                 <div class="dots flex flex-wrap justify-center mt-2">
@@ -52,7 +57,10 @@
                     :title="attributes.find(attr => attr.key === key)?.popover.label"
                   ></span>
                 </div>
-                <div v-if="activePopoverKey === key" class="popover absolute z-50 bg-white/95 backdrop-blur-md p-4 rounded-xl shadow-2xl text-purple-800 transform transition-all duration-300" :style="popoverStyle">
+                <div 
+                  v-if="activePopoverKey === key" 
+                  class="popover absolute z-50 bg-white/95 backdrop-blur-md p-4 rounded-xl shadow-2xl text-green-800 transform transition-all duration-300" 
+                  :style="popoverStyle">
                   <h4 class="text-lg font-bold">{{ activePopoverData?.title || activePopoverData?.label }}</h4>
                   <p class="text-sm">{{ activePopoverData?.content || activePopoverData?.message }}</p>
                   <p v-if="activePopoverData?.start_date" class="text-xs">เริ่ม: {{ formatDate(activePopoverData.start_date) }}</p>
@@ -64,14 +72,17 @@
         </div>
       </section>
 
+      <!-- Notes Section -->
       <section class="bg-white/95 backdrop-blur-md p-6 rounded-2xl shadow-xl transform hover:scale-101 transition duration-300">
-        <h2 class="text-2xl font-bold text-purple-800 mb-6 flex justify-between items-center border-b-2 border-purple-200 pb-2">
+        <h2 class="text-2xl font-bold text-green-800 mb-6 flex justify-between items-center border-b-2 border-green-200 pb-2">
           บันทึกย่อ
-          <button @click="addNote" class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+          <button 
+            @click="addNote" 
+            class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
             + เพิ่มบันทึก
           </button>
         </h2>
-        <div v-if="notes.length === 0" class="text-purple-500 text-center italic">
+        <div v-if="notes.length === 0" class="text-green-500 text-center italic">
           ยังไม่มีบันทึกย่อ
         </div>
         <div v-else class="space-y-4">
@@ -88,17 +99,26 @@
       </section>
     </main>
 
-    <div v-if="showModal" class="fixed inset-0 bg-purple-900/50 flex items-center justify-center z-50">
+    <!-- Modal -->
+    <div v-if="showModal" class="fixed inset-0 bg-green-900/50 flex items-center justify-center z-50">
       <div class="bg-white/95 backdrop-blur-md p-6 rounded-2xl shadow-2xl w-full max-w-md transform hover:scale-105 transition duration-300">
-        <h3 class="text-2xl font-bold text-purple-800 mb-6 border-b-2 border-purple-200 pb-2">เพิ่มรายการสำหรับวันที่ {{ selectedDate.toLocaleDateString('th-TH', { dateStyle: 'full' }) }}</h3>
+        <h3 class="text-2xl font-bold text-green-800 mb-6 border-b-2 border-green-200 pb-2">
+          เพิ่มรายการสำหรับวันที่ {{ selectedDate.toLocaleDateString('th-TH', { dateStyle: 'full' }) }}
+        </h3>
         <div class="flex flex-col space-y-4">
-          <button @click="navigateToCreateEvent" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+          <button 
+            @click="navigateToCreateEvent" 
+            class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
             เพิ่มกิจกรรม
           </button>
-          <button @click="navigateToCreateNoteOnCalendar" class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+          <button 
+            @click="navigateToCreateNoteOnCalendar" 
+            class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
             เพิ่มบันทึกย่อ (เชื่อมกับปฏิทิน)
           </button>
-          <button @click="showModal = false" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-3 px-6 rounded-xl shadow-md transition duration-300">
+          <button 
+            @click="showModal = false" 
+            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-3 px-6 rounded-xl shadow-md transition duration-300">
             ยกเลิก
           </button>
         </div>
@@ -329,7 +349,7 @@ onMounted(() => refreshAllData());
   overflow-x: auto;
   border-radius: 1rem;
   padding: 0.5rem;
-  background: linear-gradient(135deg, #e0c1f4, #f5e6ff);
+  background: linear-gradient(135deg, #07e6ae, #03f166);
 }
 
 .day-content {
