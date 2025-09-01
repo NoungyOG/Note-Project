@@ -1,0 +1,92 @@
+/* frontend/assets/css/v-calendar-overrides.css */
+
+/* V-Calendar Header Colors */
+.vc-header {
+    background-color: theme('colors.pastel-purple.100');
+    border-bottom: 1px solid theme('colors.pastel-purple.200');
+    padding: 10px 15px;
+  }
+  .vc-arrow {
+    color: theme('colors.dark-purple');
+    transition: color 0.2s ease-in-out;
+  }
+  .vc-arrow:hover {
+    color: theme('colors.pastel-purple.700');
+  }
+  .vc-title {
+    color: theme('colors.dark-purple');
+    font-weight: 700;
+    font-size: 1.25rem; /* text-xl */
+  }
+  
+  /* V-Calendar Weekday Headers (2-letter abbreviation) */
+  .vc-weekdays {
+    background-color: theme('colors.pastel-purple.100');
+    padding: 0.5rem 0;
+    border-bottom: 1px solid theme('colors.pastel-purple.200');
+  }
+  .vc-weekday {
+    color: theme('colors.pastel-purple.700'); /* Changed to 700 for better visibility */
+    font-weight: 600;
+    font-size: 0.875rem; /* text-sm */
+  }
+  
+  /* V-Calendar Day Styles */
+  .vc-day {
+    color: theme('colors.gray.700');
+  }
+  .vc-day.is-today .vc-day-content {
+    background-color: theme('colors.pastel-purple.500') !important; /* Slightly darker pastel for today */
+    color: theme('colors.white') !important;
+    font-weight: bold;
+    border-radius: 9999px; /* rounded-full */
+    transition: background-color 0.2s ease-in-out;
+  }
+  .vc-day.is-today .vc-day-content:hover {
+      background-color: theme('colors.pastel-purple.600') !important;
+  }
+  
+  .vc-day.is-selected .vc-day-content {
+    background-color: theme('colors.pastel-purple.700') !important; /* Even darker pastel for selected */
+    color: theme('colors.white') !important;
+    font-weight: bold;
+    border-radius: 9999px; /* rounded-full */
+    transition: background-color 0.2s ease-in-out;
+  }
+  .vc-day.is-selected .vc-day-content:hover {
+      background-color: theme('colors.pastel-purple.800') !important;
+  }
+  
+  /* Other day content adjustments (copied from your original) */
+  .vc-day-content {
+    min-height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .vc-day-content:focus {
+    outline: none;
+  }
+  
+  /* Day label position (copied from your original) */
+  .day-label {
+     position: static;
+     order: 1;
+  }
+  .dots {
+     position: static;
+     order: 2;
+     width: 100%;
+     box-sizing: border-box;
+     padding: 0 3px;
+     margin-top: 2px;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     gap: 2px;
+  }
