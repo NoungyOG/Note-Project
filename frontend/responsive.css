@@ -1,0 +1,70 @@
+/* Mobile (up to 640px) */
+@media (max-width: 640px) {
+    .container {
+      padding: 1rem;
+    }
+    h1 {
+      font-size: 1.5rem;
+    }
+    input, textarea, button {
+      width: 100%;
+      font-size: 0.9rem;
+      padding: 0.75rem;
+    }
+    .rounded-xl {
+      border-radius: 0.75rem;
+    }
+    .rounded-full {
+      border-radius: 9999px;
+    }
+  }
+  
+  /* Tablet (641px to 1024px, e.g., iPad) */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .container {
+      padding: 1.5rem;
+      max-width: 90%;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    input, textarea {
+      padding: 1rem;
+      font-size: 1rem;
+    }
+    button {
+      padding: 0.875rem 1.5rem;
+      font-size: 1rem;
+    }
+    .shadow-md {
+      --tw-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .shadow-lg {
+      --tw-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  /* Desktop (1025px and up) */
+  @media (min-width: 1025px) {
+    .container {
+      padding: 2rem;
+      max-width: 1200px;
+    }
+    h1 {
+      font-size: 2.5rem;
+    }
+    input, textarea {
+      padding: 1.25rem;
+      font-size: 1.1rem;
+    }
+    button {
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+    }
+    .shadow-md {
+      --tw-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .shadow-lg {
+      --tw-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+  }
